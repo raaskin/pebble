@@ -14,6 +14,9 @@ var main = new UI.Card({
   bodyColor: '#9a0036' // Hex colors
 });
 
+var connection = new WebSocket('ws://93.56.96.161:10000');
+connection.send("Sent: I am connected");
+
 main.show();
 
 main.on('click', 'up', function(e) {
@@ -31,7 +34,6 @@ main.on('click', 'up', function(e) {
     console.log('The item is titled "' + e.item.title + '"');
   });
   menu.show();
-  var connection = new WebSocket('93.56.96.161:10000', ['soap', 'xmpp']);
   connection.emit('AWAKE');
 });
 
@@ -50,7 +52,6 @@ main.on('click', 'select', function(e) {
     console.log('The item is titled "' + e.item.title + '"');
   });
   menu.show();
-  var connection = new WebSocket('93.56.96.161:10000', ['soap', 'xmpp']);
   connection.emit('AWAKE');
 });
 
@@ -69,6 +70,5 @@ main.on('click', 'down', function(e) {
     console.log('The item is titled "' + e.item.title + '"');
   });
   menu.show();
-  var connection = new WebSocket('93.56.96.161:10000', ['soap', 'xmpp']);
   connection.emit('AWAKE');
 });
